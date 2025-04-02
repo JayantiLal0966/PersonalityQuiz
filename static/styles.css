@@ -5,3 +5,7 @@ body {
     display: flex;
     justify-content: space-between;
 }
+.dark-mode {
+    background-color: #222;
+    color: white;
+}

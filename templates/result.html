@@ -8,8 +8,11 @@
 </head>
 <body>
     <div class="container text-center">
+        <h3 class="mt-4">Your Personality Type:</h3>
+<h2 class="text-primary">{{ personality }}</h2>
+        <h3 class="mt-4">Your Personality Chart:</h3>
+<img src="{{ url_for('serve_chart') }}" alt="Personality Chart" class="img-fluid">
         <h2 class="mt-4">Your Personality Analysis</h2>
-        <img src="{{ url_for('static', filename='personality_chart.png') }}" alt="Personality Chart" class="img-fluid mt-3">
 
         <h3 class="mt-4">Your Scores:</h3>
         <ul class="list-group">
@@ -17,6 +20,11 @@
                 <li class="list-group-item"><strong>{{ trait }}:</strong> {{ score }}</li>
             {% endfor %}
         </ul>
+
+        <h3 class="mt-4">Share Your Results:</h3>
+        <a href="https://api.whatsapp.com/send?text=Check out my personality test results! {{ request.url }}" target="_blank" class="btn btn-success">Share on WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.url }}" target="_blank" class="btn btn-primary">Share on Facebook</a>
+        <a href="https://www.instagram.com" target="_blank" class="btn btn-danger">Post on Instagram</a>
 
         <a href="/" class="btn btn-secondary mt-3">Take Quiz Again</a>
     </div>
